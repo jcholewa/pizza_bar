@@ -93,7 +93,23 @@ RSpec.describe "Pizza", type: :request do
     }])
   end
 
-  it "returns pizzas serialized as json" do
+  it "returns a 404 if the pizza doesn't exist" do
+    get "/pizza/99"
+
+    expect(json).to eq({
+        id: Pizza.first.id,
+        name: "El Pendo",
+        ingredients: [
+          "Parsley",
+          "Pepperoni",
+          "Pickle",
+          "Pineapple",
+          "Prawns"
+        ]
+    })
+  end
+
+  it "returns a single pizza serialized as json" do
     post "/pizza", params: {
       pizza: {
         name: "El Pendo",

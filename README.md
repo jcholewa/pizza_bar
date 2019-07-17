@@ -4,6 +4,7 @@ You have been contracted by an up and coming artisanal pizza restaurant to build
 
   - Create new pizzas
   - Return a list of pizzas
+  - Return a single pizza
 
 They have been kind enough to write some tests to check that your work satisfies their needs.
 
