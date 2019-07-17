@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Pizza" do
+RSpec.describe "Pizza", type: :request do
   let(:json) { JSON.parse(response.body, symbolize_names: true) }
 
   it "has a name" do
@@ -64,7 +64,7 @@ RSpec.describe "Pizza" do
     expect(json).to eq([])
   end
 
-  it "returns pizza serialized as json" do
+  it "returns pizzas serialized as json" do
     post "/pizza", params: {
       pizza: {
         name: "El Pendo",
@@ -91,6 +91,35 @@ RSpec.describe "Pizza" do
           "Prawns"
         ]
     }])
+  end
+
+  it "returns pizzas serialized as json" do
+    post "/pizza", params: {
+      pizza: {
+        name: "El Pendo",
+        ingredients: [
+          "Parsley",
+          "Pepperoni",
+          "Pickle",
+          "Pineapple",
+          "Prawns"
+        ]
+      }
+    }
+
+    get "/pizza/#{Pizza.first.id}"
+
+    expect(json).to eq({
+        id: Pizza.first.id,
+        name: "El Pendo",
+        ingredients: [
+          "Parsley",
+          "Pepperoni",
+          "Pickle",
+          "Pineapple",
+          "Prawns"
+        ]
+    })
   end
 
 end
