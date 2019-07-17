@@ -1,24 +1,39 @@
-# README
+# Pizza Bar
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You have been contracted by an up and coming artisanal pizza restaurant to build them an API that can:
 
-Things you may want to cover:
+  - Create new pizzas
+  - Return a list of pizzas
 
-* Ruby version
+They have been kind enough to write some tests to check that your work satisfies their needs.
 
-* System dependencies
 
-* Configuration
+### Getting started:
 
-* Database creation
+#### - If have ruby installed on your computer and want to run the tests locally
+```
+bin/setup
+```
 
-* Database initialization
+Run the tests
+```
+bin/test
+```
 
-* How to run the test suite
+#### - If you want to run the tests via docker
+```
+docker-compose build
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the tests
+```
+docker-compose run pizza bundle exec rspec
+```
 
-* Deployment instructions
+### Task
+1. Write code that makes the test pass
+2. Run the tests again
+3. Write more code to make the next test pass
+4. Repeat until all the tests pass
 
-* ...
+Good luck 😀
